@@ -4,70 +4,87 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import org.springframework.stereotype.Controller;
+
 import food.service.FoodDTO;
 import food.service.FoodService;
 
 
 @Controller
-public class FoodController { //ÀÌ Å¬·¡½º´Â SpringMVCÄÁÆ®·Ñ·¯·Î Ç¥½ÃµÇ¾î ÀÖ½À´Ï´Ù.
+public class FoodController { //ì´ í´ë˜ìŠ¤ëŠ” SpringMVCì»¨íŠ¸ë¡¤ëŸ¬ë¡œ í‘œì‹œë˜ì–´ ìˆìŠµë‹ˆë‹¤.
 	
 	@Autowired 
-	private FoodService foodService; // ÀÌ´Â FoodService Å¬·¡½ºÀÇ ºóÀ» ÄÁÆ®·Ñ·¯¿¡ ÁÖÀÔÇÑ´Ù.
+	private FoodService foodService; // ì´ëŠ” FoodService í´ë˜ìŠ¤ì˜ ë¹ˆì„ ì»¨íŠ¸ë¡¤ëŸ¬ì— ì£¼ì…í•œë‹¤.
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Model model, HttpSession session) {
-							//¸ŞÀÎÆäÀÌÁö ¸ÅÇÎ
-		return "mainpage"; //ÀÌ ¸Ş¼­µå´Â ·çÆ®°æ·Î("/")¿¡ ´ëÇÑ HTTP GET ¿äÃ»À» Ã³¸®ÇÏ°í
-	// ºä ÀÌ¸§ "mainpage"¸¦ ¹İÈ¯ÇÕ´Ï´Ù. Model ¹× HttpSession À» ¸Å°³º¯¼ö·Î »ç¿ëÇÕ´Ï´Ù.
+							//ë©”ì¸í˜ì´ì§€ ë§¤í•‘
+		return "mainpage"; //ì´ ë©”ì„œë“œëŠ” ë£¨íŠ¸ê²½ë¡œ("/")ì— ëŒ€í•œ HTTP GET ìš”ì²­ì„ ì²˜ë¦¬í•˜ê³ 
+	// ë·° ì´ë¦„ "mainpage"ë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤. Model ë° HttpSession ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ì‚¬ìš©í•©ë‹ˆë‹¤.
 	}
 	
-	@RequestMapping("/food/List/1") // À½½Ä ¸ñ·Ï ¸ÅÇÎ
+	@RequestMapping("/food/List/1") // ìŒì‹ ëª©ë¡ ë§¤í•‘
 	public String getFoodList(@PathVariable String page,@ModelAttribute("foodDTO") FoodDTO foodDTO, Model model, HttpSession session) {
 		List<FoodDTO> list = foodService.list(foodDTO);
 		model.addAttribute("resultList", list);
 		return "food/List"; 	
-		//ÀÌ ¸Ş¼­µå´Â "/FoodService"¿¡¼­ "FoodDTO" °´Ã¼ ¸ñ·ÏÀ» °¡Á®¿Í "resultList"·Î ¸ğµ¨¿¡ Ãß°¡ÇÏ°í
-		//"food/List"¶ó´Â ºäÀÌ¸§À» ¹İÈ¯ÇÕ´Ï´Ù.
+		//ì´ ë©”ì„œë“œëŠ” "/FoodService"ì—ì„œ "FoodDTO" ê°ì²´ ëª©ë¡ì„ ê°€ì ¸ì™€ "resultList"ë¡œ ëª¨ë¸ì— ì¶”ê°€í•˜ê³ 
+		//"food/List"ë¼ëŠ” ë·°ì´ë¦„ì„ ë°˜í™˜í•©ë‹ˆë‹¤.
 		
-		//FoodDTO Å¬·¡½º´Â À½½Ä°ú °ü·ÃµÈ µ¥ÀÌÅÍ¸¦ Ä¸½¶È­ÇÏ´Â µ¥ »ç¿ëµÇ´Â µ¥ÀÌÅÍ Àü¼Û °´Ã¼
-		//FoodService Å¬·¡½º´Â À½½Ä°ú °ü·ÃµÈ ºñÁî´Ï½º ·ÎÁ÷À» Ã³¸®ÇÏ´Â µ¥ »ç¿ë
+		//FoodDTO í´ë˜ìŠ¤ëŠ” ìŒì‹ê³¼ ê´€ë ¨ëœ ë°ì´í„°ë¥¼ ìº¡ìŠí™”í•˜ëŠ” ë° ì‚¬ìš©ë˜ëŠ” ë°ì´í„° ì „ì†¡ ê°ì²´
+		//FoodService í´ë˜ìŠ¤ëŠ” ìŒì‹ê³¼ ê´€ë ¨ëœ ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§ì„ ì²˜ë¦¬í•˜ëŠ” ë° ì‚¬ìš©
 	}
-	    @RequestMapping("food/List/login")
-	    public String showMyPage() {
-	        return "login"; // JSP ÆÄÀÏÀÇ ÀÌ¸§À» ¹İÈ¯ (È®ÀåÀÚ Á¦¿Ü)
-	    }
-	    @RequestMapping("food/List/join")
-	    public String showMyPage2() {
-	        return "join"; // JSP ÆÄÀÏÀÇ ÀÌ¸§À» ¹İÈ¯ (È®ÀåÀÚ Á¦¿Ü)
-	    }
-	    @RequestMapping("food/List/homepage") 
-	    public String showMyPage3() {
-	        return "homepage"; // JSP ÆÄÀÏÀÇ ÀÌ¸§À» ¹İÈ¯ (È®ÀåÀÚ Á¦¿Ü)
-	    }
-	    @RequestMapping("food/List/like")
-	    public String showMyPage4() {
-	        return "like"; // JSP ÆÄÀÏÀÇ ÀÌ¸§À» ¹İÈ¯ (È®ÀåÀÚ Á¦¿Ü)
-	    }
-	    @RequestMapping("food/List/myRefrigerator")
-	    public String showMyPage5() {
-	        return "myRefrigerator"; // JSP ÆÄÀÏÀÇ ÀÌ¸§À» ¹İÈ¯ (È®ÀåÀÚ Á¦¿Ü)
-	    }
-	    @RequestMapping("food/List/myStatistics")
-	    public String showMyPage6() {
-	        return "myStatistics"; // JSP ÆÄÀÏÀÇ ÀÌ¸§À» ¹İÈ¯ (È®ÀåÀÚ Á¦¿Ü)
-	    }
-	    @RequestMapping("food/List/recipe")
-	    public String showMyPage7() {
-	        return "recipe"; // JSP ÆÄÀÏÀÇ ÀÌ¸§À» ¹İÈ¯ (È®ÀåÀÚ Á¦¿Ü)
-	    }
-	}
-
+    @RequestMapping("food/List/login")
+    public String showMyPage() {
+        return "login"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/join")
+    public String showMyPage2() {
+        return "join"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/homepage") 
+    public String showMyPage3() {
+        return "homepage"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/like")
+    public String showMyPage4() {
+        return "like"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/myRefrigerator")
+    public String showMyPage5() {
+        return "myRefrigerator"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/myStatistics")
+    public String showMyPage6() {
+        return "myStatistics"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/bread")
+    public String showMyPage7() {
+        return "bread"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/dobo")
+    public String showMyPage8() {
+        return "dobo"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/gogi")
+    public String showMyPage9() {
+        return "gogi"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/potato")
+    public String showMyPage10() {
+        return "potato"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+    @RequestMapping("food/List/strawberry")
+    public String showMyPage11() {
+        return "strawberry"; // JSP íŒŒì¼ì˜ ì´ë¦„ì„ ë°˜í™˜ (í™•ì¥ì ì œì™¸)
+    }
+}
