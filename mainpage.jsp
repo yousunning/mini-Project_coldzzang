@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>나의 웹사이트</title>
+    <title>메인 홈페이지</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +33,7 @@
     </style>
 </head>
 <body>
+<h6>차갑짱 메인 홈페이지</h6>
     <h1>환영합니다!</h1>
     <!-- 이미지 -->
     <div class="text-center mt-4">
