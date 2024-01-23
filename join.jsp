@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>³ªÀÇ À¥»çÀÌÆ®</title>
+    <title>íšŒì›ê°€ìž…</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -15,33 +15,30 @@
   </style>
 </head>
 <body>
-<h3>Â÷°©Â¯</h3>
+<h3>íšŒì›ê°€ìž…</h3>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/food/List/2">¸ñ·ÏÀ» ¿­¾îÁÖ¼¼¿ä. >>>>>> Click</a>
+    <a class="navbar-brand" href="/food/List/2">ëª©ë¡ì„ ì—´ì–´ì£¼ì„¸ìš”. >>>>>> Click</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/food/List/like">Áñ°ÜÃ£±â</a>
+                <a class="nav-link" href="/food/List/like">ì¦ê²¨ì°¾ê¸°</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/food/List/myRefrigerator">³ªÀÇ ³ÃÀå°í</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/food/List/myStatistics">Åë°è</a>
+                <a class="nav-link" href="/food/List/myRefrigerator">ë‚˜ì˜ ëƒ‰ìž¥ê³ </a>
             </li>
         </ul>
     </div>
 </nav>
 
-    <!-- ¸ÞÀÎ ÄÁÅÙÃ÷ -->
+    <!-- ë©”ì¸ ì»¨í…ì¸  -->
     <div class="container mt-4" style="text-align:center;">
-    <!-- ¸µÅ©¸¦ ¹öÆ°Ã³·³ ½ºÅ¸ÀÏ¸µ -->
-    <a href="/food/List/join" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">È¸¿ø°¡ÀÔ ¿Ï·á</a>
-    <a href="/food/List/login" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">·Î±×ÀÎ ÇÏ±â</a>
-    <a href="/food/List/homepage" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Â÷°©Â¯ È¨ÆäÀÌÁö</a>
+    <!-- ë§í¬ë¥¼ ë²„íŠ¼ì²˜ëŸ¼ ìŠ¤íƒ€ì¼ë§ -->
+    <a href="/food/List/join" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">íšŒì›ê°€ìž… ì™„ë£Œ</a>
+    <a href="/food/List/login" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">ë¡œê·¸ì¸ í•˜ê¸°</a>
+    <a href="/food/List/homepage" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">ì°¨ê°‘ì§± í™ˆíŽ˜ì´ì§€</a>
 </div>
      <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
