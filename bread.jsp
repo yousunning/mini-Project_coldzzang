@@ -54,7 +54,7 @@
     <div class="container mt-4" style="text-align:right;">
     <!-- 링크를 버튼처럼 스타일링 -->
     <a href="/food/List/homepage" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">차갑짱 홈페이지</a>
-    <a href="/food/List/recipe" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">레시피 찾기</a>
+ <!-- <a href="/food/List/recipe" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">레시피 찾기</a> -->
     <a href="/food/List/login" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">로그아웃</a>
 </div>
     <!-- jQuery, Popper.js, Bootstrap JS -->
