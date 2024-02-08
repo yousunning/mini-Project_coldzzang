@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+/src/main/WEB-INF/views
 <html>
 <head>
     <title>차갑짱 레시피</title>
